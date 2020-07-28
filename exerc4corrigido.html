@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>IMC</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        button {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 100px;
+        }
+        body {
+            font-weight: bold;
+			font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;  
+        }
+        header {
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #7171f6;
+			border-left: 500px solid #ffffff;
+			border-right: 500px solid #ffffff;
+            padding: 5px;                   
+        }
+        table {
+            border: 10px solid #7171f6;
+            margin-top: 3px;            
+        }
+        th {
+            background-color: #7171f6;
+            width: 100px;
+            color: black;
+            padding: 10px; 
+        }
+        td {
+            text-align: center;
+            border: 1px solid #333333;
+            padding: 10px;            
+        }
+		button {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		button[type=button]:hover {
+			background-color: #5fc16f;
+		}
+		button[type=reset]:hover{
+			background-color: #ffd500;
+		}
+		input {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+        .container-itens> label{
+            display: block;
+        }
+        #alert1{
+            display: none;
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+	    #alert2{
+            display: none;
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }		
+    </style>
+    
+    <script>
+        function conta(){
+            let altura = parseFloat(document.getElementById('caixa_altura').value);
+            let peso   = parseFloat(document.getElementById('caixa_peso').value);
+            let resultado = peso/(altura*altura);
+                console.log(altura);
+                console.log(peso);
+                console.log(resultado);
+            document.getElementById('imc').value = resultado;
+
+            var alert1 = document.getElementById('alert1');
+            var alert2 = document.getElementById('alert2');
+
+            if (caixa_altura.value == "") {
+                alert1.style.display = "block";
+            }
+            
+            if (caixa_peso.value == "") {
+                alert2.style.display = "block";
+            }
+        }
+
+    </script>
+
+  </head>
+  <center>
+  <body>
+      <header>
+          <h2>Cálculo de IMC</h2>
+      </header>
+    <form>
+      <div class="container">
+    <div class="container-itens">
+        <label class="Altura"><b>Altura:</b></label>
+        <input id="caixa_altura" type="number"/>
+    </div>
+     <div class="container-itens">
+        <label class="Peso"><b>Peso:</b></label>
+        <input id="caixa_peso" type="number"/>
+     </div>
+     <div class="container-itens">
+        <button type="reset">Limpar</button>
+        <button type="button" onclick="conta()">Cálculo</button>
+     </div>
+     <div class="container-itens">
+    </form>
+         
+        <input type="text" id="imc" placeholder="Resultado"><br><br>
+     </div>
+        <table>
+            
+            <tr>
+                <th>IMC</th>
+                <th>Classificação</th>
+                <th>Obesidade</th>
+            </tr>
+            <tr>
+                <td>Menor que 18,5</td>
+                <td>Magreza</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Entre 18,5 e 24,9</td>
+                <td>Normal</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Entre 25,0 e 29,9</td>
+                <td>Sobrepeso</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Entre 30,0 e 39,9</td>
+                <td>Obesidade</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Maior que 40,0</td>
+                <td>Obesidade Grave</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="alert1">
+        <span class="closebtn"
+            onclick="this.parentElement.style.display = 'none';">&times;</span>
+        <strong>Por favor, insira a altura.</strong>
+    </div>
+
+    <div id="alert2">
+        <span class="closebtn"
+            onclick="this.parentElement.style.display = 'none';">&times;</span>
+        <strong>Por favor, insira o peso.</strong>
+    </div>
+
+  </body>
+</html>
